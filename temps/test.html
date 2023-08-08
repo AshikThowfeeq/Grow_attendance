@@ -1,0 +1,20 @@
+<!-- classroom_students.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Classroom Students</title>
+</head>
+<body>
+    <h1>Students in {{ classroom.name }}</h1>
+    <ul>
+        {% for student in students %}
+            {% if student.student_class.id == classroom.id %}
+                <li> 
+                    <a href="{% url 'student_details' student.id %}">{{ student.name }}</a> Present: {{ student.num_present }} | Absent: {{ student.num_absent }}
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    
+</body>
+</html>
